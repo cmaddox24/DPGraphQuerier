@@ -25,7 +25,7 @@ class Graph():
         self.degrees[i] += 1
         self.degrees[j] += 1
         if v:
-            self.edges[(i,j)] = v[random.randint(0, len(v)-1)]
+            self.edges[(i,j)] = random.uniform(0, 1)
         else:
             self.edges[(i,j)] = 1
 
@@ -45,7 +45,7 @@ class Graph():
         G = nx.Graph()
         G.add_nodes_from([i for i in range(self.nodes)])
         G.add_edges_from(self.edges.keys())
-        nx.draw_networkx(G)
+        nx.draw_networkx(G, with_labels=False)
         plt.show()
     
     def visualize_with_weights(self):
